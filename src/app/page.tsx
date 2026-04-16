@@ -8,7 +8,7 @@ import MarketingPage from './marketing/page'
 import WhatsOnPage from './whats-on/page'
 
 export default function Index() {
-  const enableMarketing = process.env.NEXT_PUBLIC_ENABLE_MARKETING === 'true'
+  const enableMarketing = true
   const [user, setUser] = useState<User | null>(null)
   const [shows, setShows] = useState<any[]>([])
 
@@ -36,13 +36,7 @@ export default function Index() {
 
   return (
     <main>
-      <div style={{ padding: '10px', background: '#eee' }}>
-        {user ? (
-          <p>Connectée : {user.email}</p>
-        ) : (
-          <p>Pas connectée</p>
-        )}
-      </div>
+      
 
       <h2>Shows :</h2>
       <ul>
