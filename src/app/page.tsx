@@ -2,18 +2,19 @@
 
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
+import type { User } from '@supabase/supabase-js'
 
 import MarketingPage from './marketing/page'
 import WhatsOnPage from './whats-on/page'
 
 export default function Index() {
   const enableMarketing = process.env.NEXT_PUBLIC_ENABLE_MARKETING === 'true'
-  const [user, setUser] = useState(null)
-  const [shows, setShows] = useState([])
+  const [user, setUser] = useState<User | null>(null)
+  const [shows, setShows] = useState<any[]>([])
 
   useEffect(() => {
     const getUser = async () => {
-      const { data } = await supabase.auth.getUser()
+      const { data } = await supabase.auth.getUser()  
       setUser(data.user)
     }
 
